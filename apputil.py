@@ -80,6 +80,9 @@ def task_2():
     """
     df_bellevue = pd.read_csv(DATA_URL)
 
+    df_bellevue["date_in"] = pd.to_datetime(df_bellevue["date_in"])
+    df_bellevue["year"] = df_bellevue["date_in"].dt.year
+
     df_year = df_bellevue.groupby("year").size().reset_index(name="total_admissions")
     return df_year
 
