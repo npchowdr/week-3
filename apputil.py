@@ -84,19 +84,19 @@ def task_2():
     return df_year
 
 def task_3():
-    """Return a DataFrame with the average age for each gender in the Bellevue dataset.
+    """Return a Series with the average age for each gender in the Bellevue dataset.
 
     Args:
         None
 
     Returns:
-        A DataFrame with 'gender' and 'average_age', 
+        A Series with 'gender' as the index and 'average_age' as the values,
         where 'gender' is the gender of the patient and
         'average_age' is the average age for that gender.
     """
     df_bellevue = pd.read_csv(DATA_URL)
 
-    df_gender = df_bellevue.groupby("gender").age.mean().reset_index()
+    df_gender = df_bellevue.groupby("gender").age.mean()
     return df_gender
 
 def task_4():
